@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      font-size: 0;
+    }
+
+      .div-demo,.div-demo1{
+        background: red;
+        display: inline-block;
+
+        width: 200px;
+        height: 100px;
+
+        border: 2px solid blue; /* 设置线条 width 线条样式 颜色 */
+        padding: 10px 20px;/*全方位*/
+
+        font-size: 14px;
+        color: gold;
+        /* ie 盒模型 */
+        box-sizing: border-box; /* 如果写了宽度 高度 那一定要加这个  */
+
+       /* box-sizing: content-box; 谷歌盒模型 */
+         
+       /* padding: 20px  30px;   上下  左右 margin*/ 
+       /* padding:  10px 40px 30px;   上  左右  下  margin*/
+       /*  padding:  10px 20px 30px 40px ;  上 右  下 左 margin*/
+
+       /* margin:0 10px 0 0 ; */
+       margin-right: 10px; /* padding 也可以*/
+       margin-left: 10px;
+       margin-top: 10px;
+      }
+      .div-demo1{
+        width: auto;
+        display: block;
+        margin-top: 50px;
+      }
+      /* .span-demo{
+        display: inline-block;
+        background: red;
+        height: 50px;
+      } */
+
+      /* inline  width不行 height也不行 可以设置padding 不能设置margin 线条可以 */
+
+      /* inline-block  可以设置padding 可以设置margin  线条可以*/
+      /* block  可以设置padding 可以设置margin  线条可以*/
+
+      /* .div-demo1{
+        width: 70px;
+        height: 60px;
+        line-height: 30px;
+        background: red;
+        text-align: center;
+        display: inline-block;
+      } */
+
+      .inline-box{
+        padding: 10px;
+        background: red;
+        display: inline;
+        font-size: 16px;
+        border: 10px solid black;
+      }
+
+      .redred{
+        color: red;
+        font-size: 15px;
+        margin-left: 20px;
+        display: inline-block;
+      }
+
+      .redred  .redred-title{
+        cursor: pointer;
+         font-size: 16px;
+      }
+
+      .redred  .redred-title:hover +  .redred-tips{
+        display: block;
+      }
+
+      .redred-tips{
+        display: none;
+        width: 200px;
+        height: 200px;
+        background: #f2f2f2;
+        font-size: 20px;
+        margin-top: 10px;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      /**
+        display: none; 隐藏 不站位
+        display: inline-block;  
+           inline-block  可以设置padding 可以设置margin  线条可以
+           设置width 就是以这个为宽度
+           不设置就是以内容 宽度
+
+        display: inline;
+           inline  可以设置padding  不可以设置margin  线条可以 不能设置宽高
+           内容只能靠文本
+
+        display: block;
+
+          块 宽度默认100% 撑满fuji
+
+      */
+      .extens-box{
+        height: 210px;
+      }
+      .extens-child-box{
+       
+        height: 100%;
+      }
+      .extens-child1-box{
+        height: 100%;
+        background: blue;
+      }
+  </style>
+</head>
+<body>
+  
+  <div class="extens-box">
+    <div class="extens-child-box">
+      <div class="extens-child1-box"></div>
+    </div>
+  </div>
+
+
+  <div class="div-demo">
+    我的一个标题1
+  </div>
+  <div class="div-demo1">
+    我的二个标题
+  </div>
+  <!-- <div class="div-demo1">
+
+    撒娇是计算机
+  </div> -->
+
+  <!-- <hr>
+  <hr> -->
+  <!-- <span class="span-demo">1</span> -->
+
+  <!-- <div class="inline-box">我是 inline-box</div> -->
+
+  <div class="redred">
+    <div class="redred-title">我是问号小提示</div>
+    <div class="redred-tips">
+      1.踢踢踢
+      1.踢踢踢
+      1.踢踢踢
+    </div>
+  </div>
+ 
+</body>
+
+</html>

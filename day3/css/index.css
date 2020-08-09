@@ -1,0 +1,130 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+ul{
+  list-style: none;
+}
+
+.content{
+  width: 960px;
+  margin: 0 auto;
+}
+
+.serch-type-ui{
+  font-size: 0;
+  background: #0182e2;
+  border-radius: 4px;
+  margin-top: 20px;
+  padding: 10px 0;
+}
+
+.serch-type-ui .type-ui-item{
+  display: inline-block;
+  font-size: 13px;
+  color: #fff;
+  border-right: 1px solid #fff;
+  padding: 0 10px;
+}
+
+.serch-type-ui .type-ui-item .type-ui-item:last-child{
+  border-right: 0;
+}
+
+
+.serch-index{
+  margin-top: 20px;
+  border: 1px solid #0089cc;
+  border-top-width: 5px;
+  padding-bottom: 15px;
+}
+.serch-index-title{
+  background: #d1eef8;
+  text-indent: 20px;
+  border-bottom: 1px solid #0089cc;
+  font-size: 14px;
+  padding: 5px 0; 
+}
+
+.serch-index-content{
+  font-size: 0;
+  padding: 10px 0px;
+  border-bottom: 1px dashed #aedef2;
+}
+.index-content-title{
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 400;
+  color: #666;
+  padding: 0px 20px;
+  vertical-align: top;
+}
+.index-content-ul{
+  display: inline-block;
+}
+
+.index-content-ul li{
+  display: inline-block;
+  font-size: 12px;
+  margin-right: 15px;
+}
+.index-content-ul li:hover{
+  color: red;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.result-warp{
+  width: 700px;
+}
+.result-content{
+  padding:12px 0  0px 12px;
+}
+.result-content-item{
+  padding: 10px;
+  border: 1px solid #999;
+  width: 315px;
+  background: #f2f2f2;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.result-content-item img{
+  width: 108px;
+  height: 145px;
+  border: 1px solid #aedef2;
+  padding: 4px;
+  box-sizing: border-box;
+  float: left;
+}
+
+.result-item-detail{
+  /* display: inline-block;
+  vertical-align: top; */
+  margin-left: 118px;
+}
+.item-detail-title{
+  font-size: 14px;
+  padding-bottom: 5px;
+  border-bottom: 1px dashed #999;
+}
+.item-detail-over{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 13px;
+  line-height: 25px;
+}
+
+.btn-content{
+
+}
+
+
+.clear::after{
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+}

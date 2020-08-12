@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* div{
+      display: inline-block;
+    } */
+      /*  .div1 {
+         display: inline-block;
+        position: relative;
+      top: 20px;
+      left: 30px; */
+      /* right: 5px;
+     bottom: 0;
+      } */
+      /* 脱离文档流 */
+      /* .div2 {
+        position: absolute;
+           top: 20px;
+      left: 30px; 
+       right: 5px;
+     bottom: 0;
+      } */
+
+      /* .content-div{
+        width: 300px;
+        height: 500px;
+        background: red;
+        margin: 0 auto;
+        position: relative;
+      }
+      .div2{
+        position: absolute;
+        top: 180px;
+        left: 30px;
+      } */
+      /* .xxx,.div1{
+        display: inline-block;
+      }
+      .div1{
+        position: relative;
+      } */
+      /* .div5{
+        position: relative;
+      }
+      .div5 h3{
+        margin: 0;
+      }
+      .div5:hover .box{
+        display: block;
+      }
+      .box{
+        display: none;
+        border: 1px solid ;
+        width: 300px;
+        padding-left: 30px;
+        box-sizing: border-box;
+        position: absolute;
+        background: #fff;
+        top: 30px;
+      } */
+
+      /* .div6{
+        width: 300px;
+        height: 300px;
+        position: relative;
+        border: 1px solid black;
+      }
+
+      .div6 .div6-div{
+        position: absolute;
+        height: 300px;
+        width: 100px;
+        background: red;
+        left: 30px;
+      }
+
+      .div6-div-div{
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background: black;
+        left: 30px;
+      } */
+
+      /* .content{
+        height: 2000px;
+      }
+      .content-div{
+        position:absolute;
+      }
+      .content-div1{
+        position: fixed;
+        top: 50px;
+        left: 100px;
+      } */
+      /* 
+      .set-demo {
+        width: 300px;
+        height: 300px;
+        background: red;
+        transition: all .4s;
+        
+      }
+      .classList {
+        width: 500px;
+        opacity: 0.3;
+        transform: scale(.5);
+      } */
+      .inline1,.inline2,.inline3{
+        display: inline-block;
+        width: 30px;
+        margin-right: 30px;
+        background: red;
+      }
+
+      .inline1{
+        height: 30px;
+        vertical-align: middle;
+      }
+      .inline2{
+        height: 100px;
+        vertical-align: middle;
+        line-height: 100px;
+      }
+      .inline3{
+        height: 200px;
+        vertical-align:middle;
+        line-height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div class="content">
+      <div class="div1">
+      相对定位
+    </div>
+      
+
+      <div class="xxx">
+      我是参照物
+    </div>
+    </div> -->
+
+    <!-- <div class="content-div">
+      <div class="div2">
+        绝对定位
+      </div>
+    </div> -->
+
+    <!-- <div class="div5">
+       <h3>我是标题</h3>
+       <div class="box">
+         <p>1.xxxxxxxxx</p> 
+         <p>2.xxxxxxxxx</p> 
+         <p>3.xxxxxxxxx</p> 
+         <p>4.xxxxxxxxx</p> 
+       </div>
+    </div>
+
+    <div >我是参照物</div> -->
+
+    <!-- <div class="div6">
+      <div class="div6-div">
+        <div class="div6-div-div"></div>
+      </div>
+    </div> -->
+
+    <!-- <div class="content">
+      <p class="content-div">1111111111</p>
+      <p class="content-div1">22222222</p>
+    </div> -->
+
+    <!-- <div class="demo1">暂无暂无暂无</div> -->
+    <!-- 
+    <div class="set-demo"></div> -->
+
+
+      <div class="inline1">
+
+      </div>
+      <div class="inline2">
+        字
+      </div>
+      <div class="inline3">
+        字
+      </div>
+    <script>
+      /**
+        定位三种方式
+
+        第一种是相对定位   position: relative;
+          
+          使用的话有4个属性可以用
+
+          left top bottom right
+
+          上下不能同时使用 左右不能同时使用
+
+          给方向设置值的时候是当前的位置进行位移
+
+          -------------------------------
+
+         第二种是绝对定位   position: absolute; 
+
+          使用的话有4个属性可以用
+           
+          left top bottom right;
+
+          4个值都可以同时使用
+
+          如果父级没有设置定位的话 是按当前文档来定位 body
+
+          父级如果设置了定位就是按照父级来定位 
+            position: relative;
+            position:absolute;
+
+          按照父级的边缘来定位
+
+
+
+          第三种固定定位
+          
+          只有一个参照物的 就是body 
+
+          不管你的页面怎么滚动 他都是显示在这个位置
+
+
+          使用的话有4个属性可以用
+           
+          left top bottom right;
+
+          4个值都可以同时使用
+      */
+    </script>
+  </body>
+</html>

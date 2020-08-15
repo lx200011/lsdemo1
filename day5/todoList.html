@@ -82,8 +82,10 @@
 
       submitBtn.addEventListener("click", submitBtnFun);
 
-      inputVal.addEventListener("input", function (e) {
-        console.log(e);
+      inputVal.addEventListener("keydown", function (e) {
+        if(e.keyCode == 13){
+          submitBtnFun();
+        }
       });
 
       var uid = 0;
@@ -118,12 +120,12 @@
           let item = e.target.parentElement;
           let parent = item.parentElement;
 
-          Array.from(parent.children).forEach(function (eitem, inded) {
-            if (eitem == item) {
-              console.log(inded, "gggg");
-            }
-          });
-          // e.target.parentElement.remove();
+          // Array.from(parent.children).forEach(function (eitem, inded) {
+          //   if (eitem == item) {
+          //     console.log(inded, "gggg");
+          //   }
+          // });
+           e.target.parentElement.remove();
         }
       }
       // document.querySelector(".xx1").addEventListener("click",function(){

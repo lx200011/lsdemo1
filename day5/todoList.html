@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>toDoList</title>
+    <style>
+      .contnet {
+        width: 600px;
+        margin: 0 auto;
+      }
+
+      .contnet-head {
+        display: flex;
+      }
+      .contnet-input {
+        flex: 1;
+        text-indent: 20px;
+      }
+
+      .contnet-button {
+        margin-left: 30px;
+        width: 60px;
+        font-size: 14;
+        color: #fff;
+        background: green;
+        border-radius: 4px;
+        text-align: center;
+        line-height: 30px;
+        height: 30px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+      }
+      .result-content {
+        margin-top: 50px;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      ul li {
+        border-bottom: 1px solid black;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        font-size: 14;
+        color: #333;
+        display: flex;
+      }
+      ul li div {
+        flex: 1;
+      }
+      ul li button {
+        background: red !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contnet">
+      <div class="contnet-head">
+        <input class="contnet-input" type="text" placeholder="请输入内容" />
+        <button class="contnet-button">确定</button>
+      </div>
+
+      <div class="result-content">
+        <ul>
+          <!-- <li>
+            <div>1.</div>
+            <button class="contnet-button">删除</button>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      //确定按钮
+      var submitBtn = document.querySelector(".contnet-button");
+      //文本框input
+      var inputVal = document.querySelector(".contnet-input");
+      // ul
+      var ul = document.querySelector(".result-content ul");
+
+      submitBtn.addEventListener("click", submitBtnFun);
+
+      inputVal.addEventListener("input", function (e) {
+        console.log(e);
+      });
+
+      var uid = 0;
+      var resultData = [1, 2, 3];
+      function submitBtnFun() {
+        //当前点击确定按钮时获取的input内容
+        var resultVal = inputVal.value;
+
+        // 创建li
+        var div = document.createElement("div");
+        div.innerText = resultVal;
+
+        var button = document.createElement("button");
+        button.innerText = "删除";
+        button.classList.add("contnet-button");
+        button.classList.add("remove-item");
+        var li = document.createElement("li");
+        li.setAttribute("xxid", uid++);
+        li.append(div);
+        li.append(button);
+
+        ul.prepend(li);
+
+        inputVal.value = "";
+      }
+
+      document.addEventListener("click", removeItem);
+
+      function removeItem(e) {
+        if (Array.from(e.target.classList).includes("remove-item")) {
+          // console.log(e.target.parentElement.getAttribute("xxid"));
+          let item = e.target.parentElement;
+          let parent = item.parentElement;
+
+          Array.from(parent.children).forEach(function (eitem, inded) {
+            if (eitem == item) {
+              console.log(inded, "gggg");
+            }
+          });
+          // e.target.parentElement.remove();
+        }
+      }
+      // document.querySelector(".xx1").addEventListener("click",function(){
+      //   console.log(".xx1");
+      // })
+      // document.querySelector(".xx2").addEventListener("click",function(e){
+      //   console.log(".xx2",);
+      //  //e.stopPropagation();
+      // })
+      // function submitBtnFun() {
+      //   //当前点击确定按钮时获取的input内容
+      //   var resultVal = inputVal.value;
+
+      //   var str =
+      //     "<li>" +
+      //     " <div>" + resultVal + "</div>" +
+      //     " <button class='contnet-button'>删除</button>" +
+      //     "</li>";
+
+      //      ul.innerHTML =  ul.innerHTML + str;
+      // }
+
+      function forEach(list, callback) {
+        for (let i = 0; i < list.length; i++) {
+          callback(list[i], i);
+        }
+      }
+
+      forEach([11,2,3,4,5],function(item,index){
+        console.log(item,"ggggg",index);
+      });
+    </script>
+  </body>
+</html>

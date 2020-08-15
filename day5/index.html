@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div></div>
+
+    <script>
+      //  浏览器解析 生成html 树 和 css树 生成render树
+      //  碰到script标签会去解析script的内容,就会停止html和css树的生成
+      //
+      //  window.addEventListener("DOMContentLoaded",isOk)
+
+      // function isOk(){
+      //   console.log(document.querySelector("div"));
+      // }
+
+      var d1 = "1111";
+      // d1 = 3233;
+      // d1 = true;
+      // d1 =  function(){
+
+      // }
+
+      // d1 = [1,23,5,6,6];
+      // d1 = new Array();
+      // d1 = new Map();
+      // d1 = new Set();
+      // 字面量
+      // function 第一公员
+      d1 = {
+        ggg: {
+          ggx: 46,
+        },
+        name: "34355试试",
+        say: function () {
+          console.log("郑然18");
+        },
+        ssx: [35, 6, 6, 46],
+      };
+
+      // function fun() {
+      //    var fff = function () {
+      //      console.log("我是被return出去的方法");
+      //      return 55;
+      //    };
+
+      //   return fff();
+      // }
+
+      // var xxx = fun();
+      // console.log(xxx);
+
+      // function fun(callback,name){
+
+      //   callback(name)
+
+      // }
+
+      // var fun1 = function(name){
+      //   console.log(name);
+      // }
+
+      // fun(fun1,"谢谢你");
+
+      //  let xx = 1;
+      // const aa = 5;
+
+      var de = 1;
+      function de2() {
+        var de = 5;
+        console.log(de);
+      }
+
+      console.log(de);
+      //de2();
+    </script>
+  </body>
+</html>

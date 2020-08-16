@@ -95,9 +95,15 @@
       var uid = 0;
       var resultData = [1, 2, 3];
       function submitBtnFun() {
+
+        
         //当前点击确定按钮时获取的input内容
         var resultVal = inputVal.value;
+        if(resultVal == ""){
 
+          alert("还没写东西");
+          return false
+        }
         // 创建li
         var div = document.createElement("div");
         div.innerText = resultVal;

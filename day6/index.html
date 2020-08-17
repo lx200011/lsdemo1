@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <meta name="referrer" content="never" />
+
+    <style>
+      .city-content {
+        font-size: 0;
+      }
+      .city-item {
+        display: inline-block;
+        font-size: 14px;
+        color: black;
+        padding: 6px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .city-item-active {
+        background: #0080cc;
+        color: #fff;
+      }
+
+      .move-content {
+        font-size: 0;
+        margin-top: 100px;
+      }
+
+      .move-item {
+        display: inline-block;
+        width: 115px;
+        margin-top: 10px;
+        margin-right: 10px;
+      }
+      .move-img {
+        display: block;
+        height: 165px;
+      }
+      .move-detail {
+        margin-top: 10px;
+        font-size: 14px;
+        text-align: center;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        cursor: pointer;
+      }
+      .detail-title,
+      .detail-num {
+        display: inline-block;
+      }
+      .detail-title {
+        color: #37a;
+      }
+      .detail-num {
+        color: #e09015;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="city-content"></div>
+    <div class="move-content"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script>
+      $(function () {
+        const cityList = [1, 2, 3, 5, 6, 7, 8, 9, 10];
+        let activeIndexd = 0;
+        //给ciryItem添加点击事件
+        cityOnClick(function (item) {
+
+          if($(this).index() == activeIndexd){
+            return ;
+          }
+          $($(".city-content .city-item")
+            .get(activeIndexd)).removeClass("city-item-active");
+
+          //$(this).index() 获取当前的下标
+          activeIndexd = $(this).index();
+
+          $($(".city-content .city-item").get(activeIndexd))
+            .addClass("city-item-active")
+          
+          getList(cityList[activeIndexd]);
+        });
+        //创建城市列表
+        createCity(cityList, activeIndexd);
+        //第一次获取列表接口
+        getList(activeIndexd);
+        //给每一个电影添加点击详情跳转方法
+        openDetail();
+      });
+
+      function createCity(list, index) {
+        for (let i = 0; i < list.length; i++) {
+          if (i == index) {
+            $(".city-content").append(`
+          <div class="city-item city-item-active">${list[i]}</div>
+          `);
+          } else {
+            $(".city-content").append(`
+          <div class="city-item">${list[i]}</div>
+          `);
+          }
+        }
+      }
+
+      function cityOnClick(callback) {
+        $("body").on("click", ".city-item", callback);
+      }
+
+      function openDetail() {
+        $("body").on("click", ".move-content .move-item", function(){
+          window.open($(this).attr("url"))
+        });
+      }
+
+      function getList(start) {
+        $.ajax({
+          dataType: "jsonp",
+          url: "https://api.douban.com/v2/movie/in_theaters",
+          data: {
+            apikey: "0df993c66c0c636e29ecbb5344252a4a",
+            city: "北京",
+            start: start,
+            count: 25,
+          },
+          methods: "get",
+          success(e) {
+            for (let i = 0; i < e.subjects.length; i++) {
+              $(".move-content").append(
+                `<div class="move-item" url='${e.subjects[i].alt}'>
+                  <img
+                    class="move-img"
+                    src="${e.subjects[i].images.small}"
+                    alt=""
+                  />
+                  <div class="move-detail">
+                    <div class="detail-title">${e.subjects[i].title}</div>
+                    <div class="detail-num">${e.subjects[i].rating.average}</div>
+                  </div>
+                </div>`
+              );
+            }
+
+          },
+          error(error) {
+            console.log(error);
+          },
+          complete(e) {},
+        });
+      }
+    </script>
+  </body>
+</html>

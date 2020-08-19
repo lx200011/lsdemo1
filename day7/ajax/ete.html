@@ -19,6 +19,13 @@
       <p>3请求处理中（响应中通常有部分数据可用，但是服务器还没有完成响应）</p>
       <p>4请求已完成（可以访问服务器响应并使用它）</p>
     </div>
+
+    <input type="text" placeholder="乱输!!!" id="name" />
+    <input type="text" placeholder="乱输!!!" id="age" />
+
+    <button>Ajax提交</button>
+
+    <div class="result"></div>
     <script>
       /**
        *
@@ -54,6 +61,34 @@
         }
       };
       xhr1.send(JSON.stringify({ name: "郑然", age: 18 }));
+
+      document.querySelector("button").addEventListener("click", () => {
+        let name = document.getElementById("name").value;
+        let age = document.getElementById("age").value;
+        console.log(name, age);
+        let xhr12 = new XMLHttpRequest();
+        xhr12.responseType = "json";
+        xhr12.open("post", "http://localhost:8085/woshipost", true);
+        xhr12.setRequestHeader(
+          "Content-Type",
+          "application/json;charset=UTF-8"
+        );
+        xhr12.onreadystatechange = function () {
+          if (xhr12.readyState == 4) {
+            if (xhr12.status == 200) {
+              //成功
+              document.querySelector(
+                ".result"
+              ).innerHTML = document.querySelector(".result").innerHTML += `
+                <p>第一个输入框:${xhr12.response.name}|||第二个输入框:${xhr12.response.age}</p>
+              `;
+            } else {
+              //失败
+            }
+          }
+        };
+        xhr12.send(JSON.stringify({ name: name, age: age }));
+      });
     </script>
   </body>
 </html>

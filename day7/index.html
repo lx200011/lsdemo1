@@ -34,29 +34,6 @@
 
     <script src="loopImage.js"></script>
     <script>
-      function ajax() {}
-      setTimeout(() => {
-        var xhr = new XMLHttpRequest();
-        xhr.responseType = "text";
-        xhr.open("get", "http://127.0.0.1:5500/day7/index.html", true);
-        //设置请求头
-        xhr.setRequestHeader("Csfgpe", "355");
-        xhr.send(); //获取返回参数
-        // 1 2 3 4
-        xhr.onreadystatechange = function () {
-          console.log(xhr.readyState);
-          if (xhr.readyState == 4) {
-            if (xhr.status == 200) {
-              //成功
-              console.log(xhr.response);
-            } else {
-              //失败
-
-              console.log(2);
-            }
-          }
-        };
-      }, 1000);
     </script>
   </body>
 </html>

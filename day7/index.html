@@ -34,6 +34,21 @@
 
     <script src="loopImage.js"></script>
     <script>
+      let xml = new XMLHttpRequest();
+      xhr.open("get", "http://localhost:8085/get", true);
+      xhr.send();
+      xhr.responseType = "json";
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+          if (xhr.status == 200) {
+            //成功
+            console.log(xhr);
+          } else {
+            //失败
+            
+          }
+        }
+      };
     </script>
   </body>
 </html>

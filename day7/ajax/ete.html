@@ -32,8 +32,16 @@
        * 上面的input 用 id完全是随性 没什么别的意思 就是用来定位的
        * 
        * class result 这个元素用来放每次的结果
-       *
+       * 
+       * 
+       * 1. 首先需要安装node 一路下一步就行
+       * 2. 要在day7 > ajax 这个文件下 使用cmd 来执行 express.js 这个文件
+       * 3. 输入 node .\express.js 然后回车
+       * 4. 根据控制台提示进行下一步
+       * 
+       * 
        */
+      //get 方式
       let xhr = new XMLHttpRequest();
       xhr.responseType = "json";
       xhr.open("get", "http://localhost:8085/woshiget?name=郑然&age=18", true);
@@ -49,6 +57,8 @@
       };
       xhr.send();
 
+
+       //post 方式
       let xhr1 = new XMLHttpRequest();
       xhr1.responseType = "json";
       xhr1.open("post", "http://localhost:8085/woshipost", true);
@@ -65,6 +75,8 @@
       };
       xhr1.send(JSON.stringify({ name: "郑然", age: 18 }));
 
+
+      //把输入的值提交到node后台,然后把输入结果在显示在页面上
       document.querySelector("button").addEventListener("click", () => {
         let name = document.getElementById("name").value;
         let age = document.getElementById("age").value;

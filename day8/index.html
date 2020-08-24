@@ -1,87 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .text-red {
+        color: red;
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    .text-red {
-      color: red;
-    }
+      .bacK-color {
+        background: #999;
+      }
+    </style>
+  </head>
 
-    .bacK-color {
-      background: #999;
-    }
-  </style>
-</head>
+  <body>
+    <div class="content xsxsx xsxs11" id="sx" name="w3tt" data-sgx="gdg">
+      <div>1</div>
+      <div></div>
+      <div class="gogo"></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
 
-<body>
-  <div class="content">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
+    <div class="ccc">
+      <div class="ccc-child">11</div>
+    </div>
+    <script src="../day6/jq.js"></script>
+    <script src="./Zquery.js"></script>
+    <script>
+      // 第一步先把所有div找到 return 所有div 被jquery包裹的
+      //$("div").text("我是div").addClass("text-red");
 
-  <div class="ccc">
-    <div class="ccc-child">11</div>
-  </div>
-  <script src="../day6/jq.js"></script>
-  <script src="./Zquery.js"></script>
-  <script>
-    // 第一步先把所有div找到 return 所有div 被jquery包裹的
-    //$("div").text("我是div").addClass("text-red");
+      // console.log(z$("div").text("我是div"));
+
+      z$(".content div")
+        .text("我是div")
+
+        .addClass("text-red")
+
+        .on("click", function () {
+          console.log("被点击了");
+        })
+
+        .eq(2)
+
+        .on("click",once)
+
+        .index();
+
+      // z$(".ccc-child").parent().addClass("bacK-color");
+      // z$(".ccc-child").parent().sibling();
+
+       console.log("id:sx的元素上的class:" +  z$("#sx").attr("class"));
+      //  console.log("id:sx的元素上的name:" +  z$("#sx").attr("name"));
+      //  console.log("id:sx的元素上的name:" +  z$("#sx").attr("data-sgx"));
 
 
-    // console.log(z$("div").text("我是div"));
+      console.log("id:sx的元素上的class:" +  z$("#sx").attr("name","gggggggggggx"));
+
+      console.log("id:sx的元素上的class是否包含:" +  z$("#sx").hasClass("xsxs11"));
 
 
-    z$(".content div")
-
-      .text("我是div")
-
-      .addClass("text-red")
-
-      .on("click", function () {
-        console.log('被点击了');
-
+      z$("#sx").click(function(){
+        if($(this).hasClass("bacK-color")){
+          $(this).removeClass("bacK-color")
+        }else{
+          $(this).addClass("bacK-color")
+        }
       })
 
-      .eq(2)
+      function once() {
+        console.log("我是eq2", this);
+        z$(this).off("click",once);
+      }
 
-      .on("click", function () {
-        console.log('我是eq2');
-      })
+     // console.log($(".ccc-child").parent().siblings());
+     z$(".ccc-child").click(function(){
+       console.log(111+"ggg");
+     })
 
-      .index()
+      // document.querySelector("div").addEventListener("click", function (event) {
 
+      //   console.log('我是div被点击');
+      // })
+      // $("div").on("click", function () {
+      //   console.log('11 dian');
+      // })
 
+      //  console.log($("div").index());
+      // $.each($("div"), function (index, item) {
 
-    z$(".ccc-child").parent().addClass("bacK-color")
-    z$(".ccc-child").parent().sibling();
-
-
-    console.log($(".ccc-child").parent().siblings());
-
-    // document.querySelector("div").addEventListener("click", function (event) {
-
-    //   console.log('我是div被点击');
-    // })
-    // $("div").on("click", function () {
-    //   console.log('11 dian');
-    // })
-
-    //  console.log($("div").index());
-    // $.each($("div"), function (index, item) {
-
-    //   console.log($(item).index());
-    // })
-    document.querySelector("body")
-//    console.log($("div").parent());
-  </script>
-</body>
-
+      //   console.log($(item).index());
+      // })
+      document.querySelector("body");
+      //    console.log($("div").parent());
+    </script>
+  </body>
 </html>

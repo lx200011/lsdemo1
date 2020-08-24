@@ -3,6 +3,7 @@ const fs = require("fs");
 const bodyParser = require('body-parser');//解析,用req.body获取post参数
 
 
+
 const app = express();
 
 app.use(bodyParser.json());

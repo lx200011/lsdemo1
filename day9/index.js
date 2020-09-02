@@ -144,3 +144,20 @@ class Foo1 extends foo2{
 }
 
 new Foo1().showFoo2()
+
+
+var gsa = {
+  name:()=>{
+    console.log(this,"11");
+  }
+}
+
+function s(){
+  this.gs = gsa.name;
+
+  this.gs();
+  console.log(22);
+}
+
+new s();
+console.log(gsa.name());

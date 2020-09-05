@@ -11,14 +11,27 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
     <script src="./jq.js"></script>
     <script>
-      // $(function () {
-      //   $(".gogo").on("click", function () {
-      //     console.log("hellow ");
-      //   });
-        
-      // });
 
-      console.log($("body"));
+    // let zz =   window.open("http://r1.show08.com")
+    // setTimeout(()=>{
+    //   console.log(zz.document.querySelector("body"));
+    // },3000)
+    document.domain = "http://r1.show08.com/";
+    
+      $(document).ready(function () {
+        $.ajax({
+          type: "get",
+          async: false,
+          url: "http://r1.show08.com/?Anti-stealing-link=js&path=runtime.c40cff6c88c7668d9a83.js",
+          dataType: "jsonp",
+          jsonp: "callback", //传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+       //   jsonpCallback: "flightHandler", //自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
+          success: function (json) {
+          },
+          error: function () {
+          },
+        });
+      });
     </script>
   </body>
 </html>

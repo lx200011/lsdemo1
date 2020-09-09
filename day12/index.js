@@ -44,10 +44,9 @@ class MyPromise {
 
   then(onRelove, onReject) {
     // debugger
-    let that = this;
     return new MyPromise((r, s) => {
-      if (that.type == PENDING) {
-        that.method.success = function (v) {
+      if (this.type == PENDING) {
+        this.method.success = function (v) {
           let value;
           try {
             value = onRelove(v);
@@ -60,7 +59,7 @@ class MyPromise {
             s(error);
           }
         };
-        that.method.error = function (v) {
+        this.method.error = function (v) {
           let value;
           try {
             value = onReject(v);
@@ -81,7 +80,7 @@ class MyPromise {
       }
     });
   }
-
+ 
   static isResolve(value) {
     return new MyPromise((r) => {
       r(value);
@@ -134,4 +133,11 @@ class MyPromise {
   catch(onReject) {
     return this.then(function () {}, onReject);
   }
+
+  finally(onRelove){
+
+    return this.then(onRelove,onRelove);
+
+  }
+
 }

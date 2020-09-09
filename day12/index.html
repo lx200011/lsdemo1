@@ -9,21 +9,27 @@
     <script src="./index.js"></script>
 
     <script>
-      /*
-    new Promise(function(r,s){
+      
+    // new Promise(function(r,s){
 
-      setTimeOut(function(){
-           s(5);
-      })
-    })
-    .then(
-      function(value){
-        //5 
-      },function(value){
-        //5
-      }
-    )
-*/
+    //   setTimeOut(function(){
+    //        s(5);
+    //   })
+    // })
+    // .then(
+    //   function(value){
+    //     //5 
+    //     return 555;
+    //   },function(value){
+    //     //5
+    //    // return Promise.reject("xsx");
+    //   }
+    // ).finally((value)=>{
+    //   console.log("???",value);
+    //   console.log("-------");
+    // })
+
+  
 
       // new MyPromise(function (r, s) {
       //   //setTimeout(() => {
@@ -64,31 +70,34 @@
 
       // --------------------------------
 
-      // new MyPromise(function (r, s) {
-      //   //setTimeout(() => {
-      //   s(5);
-      //   //});
-      // })
-      //   .then(
-      //     function (value) {
-      //       console.log(44, value);
-      //     },
-      //     function (value) {
-      //       console.log(66, value);
-      //       return MyPromise.isReject(7);
-      //       // return MyPromise.isResolve(7);
-      //       // return MyPromise.isReject(7).then(()=>{},(value)=>{
-      //       //  console.log(value,"sxsx");
-      //       //  return "好哦";
-      //       // });
-      //     }
-      //   )
-      //   .then(function (value) {
-      //     console.log(55, value);
-      //   })
-      //   .catch((value) => {
-      //     console.log("catch", value);
-      //   });
+      new MyPromise(function (r, s) {
+        //setTimeout(() => {
+        s(5);
+        //});
+      })
+        .then(
+          function (value) {
+            console.log(44, value);
+          },
+          function (value) {
+            console.log(66, value);
+            return MyPromise.isReject(7);
+            //return MyPromise.isResolve(7);
+            // return MyPromise.isReject(7).then(()=>{},(value)=>{
+            //  console.log(value,"sxsx");
+            //  return "好哦";
+            // });
+          }
+        )
+        .then(function (value) {
+          console.log(55, value);
+        })
+        .catch((value) => {
+          console.log("catch", value);
+        })
+        .finally(()=>{
+            console.log("finally");
+        })
 
       //-------------------
 

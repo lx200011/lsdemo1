@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="./index.js"></script>
+
+    <script>
+      /*
+    new Promise(function(r,s){
+
+      setTimeOut(function(){
+           s(5);
+      })
+    })
+    .then(
+      function(value){
+        //5 
+      },function(value){
+        //5
+      }
+    )
+*/
+
+      // new MyPromise(function (r, s) {
+      //   //setTimeout(() => {
+      //   s(5);
+      //   //});
+      // })
+      //   .then(
+      //     function (value) {
+      //       console.log(11, value);
+      //     },
+      //     function (value) {
+      //       console.log(11 + "失败", value);
+      //       //MyPromise.reject();
+      //       return new MyPromise((r, s) => {
+      //         //debugger
+      //         setTimeout(() => {
+      //           r(666);
+      //         }, 1000);
+      //       });
+      //     }
+      //   )
+      //   .then(
+      //     function (value) {
+      //       console.log(22, value);
+      //     },
+      //     function (value) {
+      //       console.log(222 + "失败", value);
+      //     }
+      //   )
+      //   .then(
+      //     function (value) {
+      //       console.log(33, value);
+      //     },
+      //     function (value) {
+      //       console.log(33 + "失败", value);
+      //     }
+      //   );
+
+      // --------------------------------
+
+      // new MyPromise(function (r, s) {
+      //   //setTimeout(() => {
+      //   s(5);
+      //   //});
+      // })
+      //   .then(
+      //     function (value) {
+      //       console.log(44, value);
+      //     },
+      //     function (value) {
+      //       console.log(66, value);
+      //       return MyPromise.isReject(7);
+      //       // return MyPromise.isResolve(7);
+      //       // return MyPromise.isReject(7).then(()=>{},(value)=>{
+      //       //  console.log(value,"sxsx");
+      //       //  return "好哦";
+      //       // });
+      //     }
+      //   )
+      //   .then(function (value) {
+      //     console.log(55, value);
+      //   })
+      //   .catch((value) => {
+      //     console.log("catch", value);
+      //   });
+
+      //-------------------
+
+      // let a = new MyPromise((r, s) => {
+      //   r(1);
+      // });
+      // let b = new MyPromise((r, s) => {
+      //  // s(2);
+      //  r();
+      // });
+
+      // MyPromise.all([a, b]).then((value) => {
+      //   console.log(value);
+      // },
+      // // (value)=>{
+      // //   console.log("失败了");
+      // // }
+      // )
+      // .catch((value)=>{
+      //   console.log("失败了",value);
+      // })
+
+      // --------------
+
+      
+      // let a = new MyPromise((r, s) => {
+      //   setTimeout(()=>{
+
+      //     r(1);
+      //   },200)
+      // });
+      // let b = new MyPromise((r, s) => {
+      //  r(2);
+      // });
+      // MyPromise.race([a,b]).then((value)=>{
+
+      //    console.log(value);
+      // })
+    </script>
+  </body>
+</html>

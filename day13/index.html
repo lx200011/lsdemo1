@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div>名字:{{name}}</div>
+
+      <div v-for="(item,index) in arr" @click="say(item,index)">{{item}}</div>
+    </div>
+    <script src="./index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+      //2.6
+      //3.0 
+      // 50 120 
+      new Vue({
+        el: "#app",
+        data() {
+          return {
+            name: "孙总",
+            arr:["张三","李四","王五"]
+          };
+        },
+        mounted() {
+          //  setTimeout(()=>{
+          //    this.name = "孙总真猛";
+
+          //    this.arr.splice(0,1);
+          //  },3000)
+        },
+        methods: {
+          say(item,index){
+             console.log(item,index);
+          }
+        },
+      });
+    </script>
+  </body>
+</html>

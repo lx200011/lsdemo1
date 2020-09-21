@@ -34,3 +34,8 @@ vue 体验
 vue体验,ToDoList实现
 链接：https://pan.baidu.com/s/1CqC6wS3xO6HvM0mSN7lydw 
 提取码：wkc9
+
+
+vue date methods 数据更新需要注意的点，生命期
+链接：https://pan.baidu.com/s/1fkD5bHt40d_V8EMmXCwoPw 
+提取码：aw0r 

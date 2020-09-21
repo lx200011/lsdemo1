@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div @click="add('李四')">名字:{{name}}</div>
+      <div @click="setPrice">年龄:{{age}}</div>
+      <div @click="testArr">室:{{detail.room}}</div>
+      <div @click="addPush">价钱:{{ Math.floor(detail.price)}}</div>
+      <div>单价:{{ detail.avgPrice}}</div>
+      <div v-for="item in arr">{{item.title}}</div>
+      <hr />
+      <div v-for="item in arr1">{{item}}</div>
+      <div v-if="isHide">显示1111</div>
+      <div v-show="isHide">显示2222</div>
+
+      <children-a v-if="isHide"></children-a>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      //绑定事件 v-on: === @
+      //v-for 循环
+      //v-if 切换的 会重新创建或者销毁
+      //v-show 只会添加样式进行隐藏显示
+
+      //vue.$set  给之后动态创建的属性添加set方法 这样才能数据更新界面更新
+      //数组里的内容如果是基础类型,想里面的内容是不行的,界面并不会更新,如果是对象就没问题;
+      //数据驱动
+
+      new Vue({
+        //创建之前
+        beforeCreate() {
+          console.log(this.name, "创建之前");
+        },
+        created() {
+          console.log(this.name, "创建完成");
+        },
+        beforeMount() {
+          console.log("挂载之前 在这之前页面还没真正的变成想要的界面");
+        },
+        mounted() {
+          console.log("挂载完成 界面已经变成要的界面了");
+        },
+        beforeUpdate() {
+          console.log("数据修改之前,第一次不会执行,数据被修改之前才会执行");
+        },
+        updated() {
+          console.log("数据修改完成,第一次不会执行,数据被修改完成才会执行");
+        },
+        components: {
+          childrenA: {
+            template: `
+            <div>我是组件</div>
+           `,
+            data() {
+              return {
+                name: "我是组件",
+              };
+            },
+            beforeDestroy() {
+              console.log(this.name, "被卸载之前");
+            },
+            destroyed() {
+              console.log(this.name, "被卸载完成");
+            },
+          },
+        },
+        el: "#app", // 盒子的名称
+        data() {
+          return {
+            name: "张三",
+            age: "32",
+            arr: [{ title: "李四" }, { title: "王五" }, { title: "赵六" }],
+            arr1: ["张三1", "王五1", "赵六1"],
+            detail: {
+              room: 3,
+              price: 55.9,
+            },
+            isHide: true,
+          };
+        },
+        methods: {
+          add(name) {
+            this.isHide = false;
+            // 数据源 key  value
+            this.$set(this.detail, "avgPrice", 666);
+
+            console.log(this.$destroy());
+         //   this.$destroyed();
+          },
+          setPrice() {
+            this.detail.avgPrice = 777;
+          },
+          testArr() {
+            this.arr[0].title = "谢谢你";
+            this.$set(this.arr1, 0, "谢谢你1");
+          },
+          addPush() {
+            //this.arr[3] = "撒范德萨";
+
+            //往后添加
+            //this.arr1.push("忙着淋雨");
+            //删除对应下标的
+            //this.arr1.splice(1,1);
+            //删除头部
+            //this.arr1.shift();
+            //删除尾部
+            // this.arr1.pop();
+            //往头部追加
+            //this.arr1.unshift("gogo");
+
+            //数据源 数据下标 value
+            //this.$set(this.arr1,3, 666);
+
+            //this.$delete(this.arr1,1);
+
+            console.log(this.arr1);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,13 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .error {
+        border:1px solid red;
 
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-</body>
+        outline: none;
+      }
+      .error-text{
+        font-size: 13px;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="query-content">
+        <input
+          :class="{'error':isInputEmpty}"
+          type="text"
+          v-model="inputValue"
+          @keydown.enter="submitValue"
+        />
+        <button @click="submitValue" :disabled="isInputEmpty">提交</button>
+      </div>
+      <div v-show="isInputEmpty" class="error-text">输入框的结果不能是空</div>
+      <ul>
+        <li v-for="(item,index) in resultValue">
+          <span>{{item}}</span>
+          <button @click="removeItem(index)">删除这一个</button>
+        </li>
+      </ul>
+      <div v-if="resultValue.length == 0 ">暂无数据</div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      // vue vue-router vuex
+      // vue-cli
+
+      new Vue({
+        el: "#app",
+        data() {
+          return {
+            inputValue: "",
+            resultValue: [],
+            isInputEmpty: false,
+          };
+        },
+        watch: {
+          inputValue(newValue,ordValue,){
+            if(newValue!=""){
+              this.isInputEmpty = false;
+            }
+          }
+        },
+        methods: {
+          submitValue(event) {
+            if (this.inputValue == "") {
+              this.isInputEmpty = true;
+              //alert("输入框不能是空");
+              return;
+            }
+            this.resultValue.push(this.inputValue);
+            this.inputValue = "";
+          },
+          removeItem(index) {
+            this.resultValue.splice(index, 1);
+          },
+        },
+      });
+    </script>
+  </body>
 </html>

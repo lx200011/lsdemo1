@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <!--
+        v-on:submitvalue === @submitvalue
+        v-bind:tododata == :tododata
+      -->
+      {{inputArr}}
+      <todohead @submitvalue="parentGetValue"></todohead>
+      <tododata :tododata="inputArr" @removeitem="removeitem"></tododata>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+      Vue.component("todohead", {
+        template: `
+          <div>
+            <input type="text" v-model="value"/> 
+            <button @click="setValue">搜索</button>
+          </div>
+        `,
+        data() {
+          return {
+            value: "",
+          };
+        },
+        methods: {
+          setValue() {
+            //$emit
+            this.$emit("submitvalue", this.value);
+          },
+        },
+      });
+
+      Vue.component("tododata", {
+        props: ["tododata"],
+        watch: {
+          tododata(value) {
+            this.cdata = JSON.parse(JSON.stringify(this.tododata));
+          },
+        },
+        template: `
+          <div>
+           <ul>
+            <li v-for="(item,index) in cdata">
+               <span> {{item}} </span> <button @click="todoDadaRomove(index)">删除</button>
+            </li>
+            </ul>
+          </div>
+        `,
+        data() {
+          return {
+            cdata: [],
+          };
+        },
+        methods: {
+          todoDadaRomove(index) {
+            this.cdata.splice(index, 1);
+            //this.$emit("removeitem",index);
+          },
+        },
+      });
+
+      new Vue({
+        el: "#app",
+        data() {
+          return {
+            inputArr: [],
+          };
+        },
+        methods: {
+          removeitem(index) {
+            this.inputArr.splice(index, 1);
+          },
+          parentGetValue(value) {
+            this.inputArr.push(value);
+
+            console.log(this.inputArr, "子组件提交过来的数据");
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

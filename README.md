@@ -44,3 +44,8 @@ vue date methods 数据更新需要注意的点，生命期
 vue 父子生命周期 计算属性 和监听属性
 链接：https://pan.baidu.com/s/1D3fq8pe8hiTY0EdIxzARow 
 提取码：fs4g
+
+
+vue 父子交互 
+链接：https://pan.baidu.com/s/1wvopm-2mNVEZPUoGTDxT1A 
+提取码：xu24

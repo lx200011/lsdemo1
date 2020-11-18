@@ -41,7 +41,11 @@ class MyPromise {
       this.method.error(value);
     });
   }
-
+/*
+ 如果对应的失败函数没有传递,
+ 那么将会继续报错传递下一层。
+ 直到将对应的错误处理
+*/
   then(onRelove, onReject) {
     // debugger
     return new MyPromise((r, s) => {

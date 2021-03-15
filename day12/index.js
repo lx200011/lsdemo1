@@ -112,12 +112,14 @@ class MyPromise {
   static all(array) {
     return new MyPromise((r, s) => {
       let result = [];
+      let count = 0;
       for (let index = 0; index < array.length; index++) {
         const element = array[index];
         element.then(
           (value) => {
             result.push(value);
-            if (index == array.length - 1) {
+            count++;
+            if (count === array.length - 1) {
               r(result);
             }
           },

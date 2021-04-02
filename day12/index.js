@@ -53,7 +53,7 @@ class MyPromise {
  直到将对应的错误处理
 */
   then(onRelove, onReject) {
-    // debugger
+   
     this.isUseThen = true;
     let children = new MyPromise((r, s) => {
       if (this.type == PENDING) {
